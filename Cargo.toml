@@ -1,0 +1,36 @@
+[package]
+name = "tree_magic_mini"
+version = "1.0.1"
+authors = [
+    "Matt Brubeck <mbrubeck@limpet.net>",
+    "Allison Hancock <aahancoc@umich.edu>",
+]
+description = "Determines the MIME type of a file by traversing a filetype tree."
+repository = "https://github.com/mbrubeck/tree_magic/"
+documentation = "https://docs.rs/tree_magic_mini/"
+readme = "README.md"
+keywords = ["mime", "filesystem", "media-types"]
+license = "MIT"
+exclude = ["tests/*", "benches/*/"]
+edition = "2018"
+
+[dependencies]
+petgraph = "^0.5"
+nom = "6.0"
+lazy_static = "^1.4"
+fnv = "^1"
+
+[dev-dependencies]
+bencher = "^0.1"
+
+[lib]
+crate-type = ["lib"]
+path = "src/lib.rs"
+
+#[[bench]]
+#name = "from_u8"
+#harness = false
+
+#[[bench]]
+#name = "match_u8"
+#harness = false

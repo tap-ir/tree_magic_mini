@@ -1,0 +1,56 @@
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+
+  <mime-type type="volume/partition">
+  <magic priority="50">
+    <match type="big16" offset="510" value="0x55aa"/>
+  </magic>
+  </mime-type>
+
+  <mime-type type="filesystem/ntfs">
+  <sub-class-of type="volume/partition" />
+  <magic priority="90">
+    <match type="big32" offset="3" value="0x4e544653">
+      <match type="big32" offset="7" value="0x20202020">
+        <match type="big16" offset="510" value="0x55aa"/>
+      </match>
+    </match>
+  </magic>
+  </mime-type>
+
+  <mime-type type="filesystem/mft">
+    <magic priority="50">
+      <match type="string" offset="0" value="FILE0"/> 
+    </magic>
+  </mime-type>
+
+  <mime-type type="windows/prefetch">
+    <magic priorty="50">
+    <match type="big32" offset="4" value="0x53434341"/>
+    </magic>
+  </mime-type>
+
+  <mime-type type="windows/lnk">
+    <magic priority="50">
+      <match type="big32" offset="0" value="0x4c000000">
+        <match type="big32" offset="4" value="0x01140200">
+         <match type="big32" offset="12" value="0xc0000000">
+           <match type="big32" offset="16" value="0x00000046"/>
+         </match>
+        </match>
+      </match>
+    </magic>
+  </mime-type>
+
+  <mime-type type="windows/evtx">
+    <magic priority="50">
+      <match type="string" offset="0" value="ElfFile"/>
+    </magic>
+  </mime-type>
+
+  <mime-type type="windows/registry">
+    <magic priority="50">
+      <match type="string" offset="0" value="regf"/>
+    </magic>
+  </mime-type>
+
+</mime-info>
